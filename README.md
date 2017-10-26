@@ -6,6 +6,4 @@ Good morning, Mr(s) President! Everybody seems to be clamoring for tax reform, b
 
 Give it a whirl, see what happens. Create your own tax brackets and see what happens to your income! Have fun, Mr(s) President, and remember: you can't please everybody!
 
-<img
-  src='http://tinypic.com/r/x1ef0j/9'/>
-  <img
+<img src='http://tinypic.com/r/x1ef0j/9'/>
