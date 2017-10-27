@@ -26,10 +26,10 @@ class App extends Component {
 
   calculate(amount) {
     const taxed = [];
-    let income = parseFloat(amount).toFixed(2),
-        taxedTotal = 0,
-        percentTotal = 0,
-        takeHome = 0;
+    const income = parseFloat(amount).toFixed(2);
+    let taxedTotal = 0;
+    let percentTotal = 0;
+    let takeHome = 0;
     this.state.brackets.forEach((bracket, i) => {
       if (amount > bracket.number && this.state.brackets[i + 1]) {
         if (amount > this.state.brackets[i + 1].number) {
@@ -45,7 +45,7 @@ class App extends Component {
       takeHome = ((amount - taxed.reduce((a, b) => a + b, 0)).toFixed(2));
     });
     return (
-      <div className='container'>
+      <div className="container">
         <p>Income: ${isNaN(income) ? 0 : utilities.numberWithCommas(income)}</p>
         <p>Taxed: ${taxedTotal ? utilities.numberWithCommas(taxedTotal) : 0}</p>
         <p>Total percentage taxed: {isNaN(income) ? 0 : utilities.numberWithCommas(percentTotal)}%</p>

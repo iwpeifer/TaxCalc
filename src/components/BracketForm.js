@@ -11,7 +11,7 @@ export default (props) => {
   const displayBrackets = () => {
     props.brackets.sort((a, b) => a.number - b.number);
     return (
-      <div className='container'>
+      <div className="container">
       Tax Brackets:
         {props.brackets.map(bracket => (
           <div key={bracket.key}>
@@ -28,7 +28,7 @@ export default (props) => {
       <div>
         {displayBrackets()}
       </div>
-      <div className='container'>
+      <div className="container">
         Create a new Tax Bracket:
         <form onSubmit={e => submitHandler(e)}>
           Income above: $<input type="number" name="number" />
