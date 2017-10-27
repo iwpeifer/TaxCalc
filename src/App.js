@@ -26,6 +26,10 @@ class App extends Component {
 
   calculate(amount) {
     const taxed = [];
+    let income = parseFloat(amount).toFixed(2),
+        taxedTotal = 0,
+        percentTotal = 0,
+        takeHome = 0;
     this.state.brackets.forEach((bracket, i) => {
       if (amount > bracket.number && this.state.brackets[i + 1]) {
         if (amount > this.state.brackets[i + 1].number) {
@@ -36,12 +40,16 @@ class App extends Component {
       } else if (amount > bracket.number && !this.state.brackets[i + 1]) {
         taxed.push(parseFloat(((amount - bracket.number) * (bracket.tax / 100)).toFixed(2)));
       }
+      taxedTotal = (taxed.reduce((a, b) => a + b, 0)).toFixed(2);
+      percentTotal = ((taxed.reduce((a, b) => a + b, 0) / amount) * 100).toFixed(2);
+      takeHome = (amount - taxed.reduce((a, b) => a + b, 0).toFixed(2));
     });
     return (
       <div className='container'>
-        <p>Income: ${utilities.numberWithCommas(parseFloat(amount).toFixed(2))}</p>
-        <p>Taxed: ${utilities.numberWithCommas((taxed.reduce((a, b) => a + b, 0)).toFixed(2))}</p>
-        <p>Take-home: ${utilities.numberWithCommas((amount - taxed.reduce((a, b) => a + b, 0)).toFixed(2))}</p>
+        <p>Income: ${isNaN(income) ? 0 : utilities.numberWithCommas(income)}</p>
+        <p>Taxed: ${taxedTotal ? taxedTotal : 0}</p>
+        <p>Total percentage taxed: {isNaN(income) ? 0 : utilities.numberWithCommas(percentTotal)}%</p>
+        <p>Take-home: ${utilities.numberWithCommas(takeHome)}</p>
       </div>
     );
   }
