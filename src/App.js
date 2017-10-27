@@ -42,7 +42,7 @@ class App extends Component {
       }
       taxedTotal = (taxed.reduce((a, b) => a + b, 0)).toFixed(2);
       percentTotal = ((taxed.reduce((a, b) => a + b, 0) / amount) * 100).toFixed(2);
-      takeHome = (amount - taxed.reduce((a, b) => a + b, 0).toFixed(2));
+      takeHome = ((amount - taxed.reduce((a, b) => a + b, 0)).toFixed(2));
     });
     return (
       <div className='container'>
