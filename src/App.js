@@ -47,7 +47,7 @@ class App extends Component {
     return (
       <div className='container'>
         <p>Income: ${isNaN(income) ? 0 : utilities.numberWithCommas(income)}</p>
-        <p>Taxed: ${taxedTotal ? taxedTotal : 0}</p>
+        <p>Taxed: ${taxedTotal ? utilities.numberWithCommas(taxedTotal) : 0}</p>
         <p>Total percentage taxed: {isNaN(income) ? 0 : utilities.numberWithCommas(percentTotal)}%</p>
         <p>Take-home: ${utilities.numberWithCommas(takeHome)}</p>
       </div>
